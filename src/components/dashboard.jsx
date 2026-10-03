@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../css/css.css';
+import '../css/style.css';
 import EditarHorta from '../components/editor-horta.jsx'
 
 export default function Dashboard() {
@@ -31,6 +31,15 @@ export default function Dashboard() {
 
     return (
         <>
+            <div className="containerTitle">
+                <div className="titlePage">
+                    <p className="m-0"><span className="titleGreen">Área do </span> <span className="titleOrange">Gestor</span></p>
+                </div>
+                <div className="titleDetail">
+                    <p className="m-0">Espaço destinado para acompanhar e monitorar a horta.</p>
+                    <p className="m-0">Estoque • Voluntários • Multirões • Alertas • Produção</p>
+                </div>
+            </div>
             <div className="conteudo conteudo-dash">
                 {/* LINHA 1 */}
                 <div className="row g-3 line-dash">
@@ -39,7 +48,6 @@ export default function Dashboard() {
                             <h4 className="title-box-dash">
                                 Informações da Horta
                                 <button className="btn-edit-box" type="button" onClick={() => {
-                                    console.log("Cliquei no pencil!");
                                     setEditando(true)}}>
                                     <i className="bi bi-pencil-square"></i>
                                 </button>

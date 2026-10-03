@@ -1,4 +1,4 @@
-import '../css/css.css';
+import '../css/style.css';
 import { useState } from "react";
 import CadastroHorta from "./cadastro-horta.jsx";
 import CadastroVoluntario from "./cadastro-voluntario.jsx";
@@ -18,20 +18,21 @@ export default function BotaoCadastro() {
 
     return (
         <>
-            <div className="conteudo">
-                <div className="my-forms row g-4">
-                    <div className="text-duo-color col-md-3 d-flex align-items-center">
-                        <p><span className="color1">Cadastre-se</span> <span className="color2">aqui</span></p>
+            <div className="paginaCadastro">
+                <div className="containerTitle">
+                    <div className="titlePage">
+                        <p className="m-0"><span className="titleGreen">Cadastre-se</span> <span className="titleOrange">aqui</span></p>
                     </div>
-                    <div className="text-explicacao col-md-7 d-flex align-items-center">
-                        <p>Cadastre-se e faça parte da plataforma que conecta dados, pessoas e alimentos para um mundo mais sustentável.<br></br>
-                            Para começar, selecione o tipo de cadastro que você deseja.
-                        </p>
+                    <div className="titleDetail">
+                        <p className="m-0">Cadastre-se e faça parte da plataforma que conecta dados, pessoas e alimentos para um mundo mais sustentável.</p>
+                        <p className="m-0"> Para começar, selecione o tipo de cadastro que você deseja e preencha as informações solicitadas.</p>
                     </div>
-                    <div className="tipo-cadastro">
-                        <button className={`cadastro-button ${ativo === "gestor" ? "active" : ""}`} onClick={() => setAtivo("gestor")}>Gestor</button>
-                        <button className={`cadastro-button ${ativo === "voluntario" ? "active" : ""}`} onClick={() => setAtivo("voluntario")}>Voluntário</button>
-                        <button className={`cadastro-button ${ativo === "comunidade" ? "active" : ""}`}  onClick={() => setAtivo("comunidade")}>Comunidade</button>
+                </div>
+                <div>
+                    <div className="tipoCadastro">
+                        <button className={`cadastroButton ${ativo === "gestor" ? "active" : ""}`} onClick={() => setAtivo("gestor")}>Gestor</button>
+                        <button className={`cadastroButton ${ativo === "voluntario" ? "active" : ""}`} onClick={() => setAtivo("voluntario")}>Voluntário</button>
+                        <button className={`cadastroButton ${ativo === "comunidade" ? "active" : ""}`}  onClick={() => setAtivo("comunidade")}>Comunidade</button>
                     </div>
                 </div>
                 {/* Espaço dedicado ao componente que será chamado */}

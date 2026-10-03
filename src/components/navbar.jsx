@@ -1,5 +1,5 @@
 import logo from '../img/logo_HortaMap_horizontal.png';
-import '../css/css.css';
+import '../css/style.css';
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -14,6 +14,7 @@ export default function Navbar() {
                     <h2><Link to="/fale-conosco">Fale conosco</Link></h2>
                 </div>
                 <div className="direita">
+                    <button type="button" className="menu"><Link to="/reserva">Reservas</Link></button>
                     <button type="button" className="menu"><Link to="/login">Login</Link></button>
                     <button type="button" className="menu"><Link to="/experimente">Experimente a Solução</Link></button>
                 </div>

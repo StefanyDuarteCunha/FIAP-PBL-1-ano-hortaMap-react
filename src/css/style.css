@@ -1,0 +1,1265 @@
+/* ------------------------------------ variáveis ------------------------------------ */
+
+:root {
+  --verdeHorta: #bece94;
+  --verdeEscuro04: #29461366;
+  --verdeEscuro018: #2946132e;
+  --verdeEscuro: #294613;
+  --verdeVibrante: #236622;
+  --verdeVibrante04: #23662266;
+  --verdeVibrante03: #2366224d;
+  --verdeClaro: #dce8c7;
+  --cinza: rgb(55, 55, 55);
+  --cinzaClaro04: rgba(255, 255, 255, 0.4);
+  --cinzaClaro03: rgba(255, 255, 255, 0.3);
+  --laranjaVibrante: #a96238;
+  --laranjaChocolate: #d2691e;
+  --amareloLaranja: #382e16;
+  --marromFechado: #a9613841;
+  --vermelhoFechado: rgb(109, 32, 32);
+  --preto50: rgba(0, 0, 0, 0.5);
+  --fonteTitulo: "Quicksand", sans-serif;
+  --size1rem: clamp(0.7rem, 2vw, 1rem);
+  --size18rem: clamp(1rem, 2vw, 1.8rem);
+  --size07rem: clamp(0.5rem, 2vw, 0.7rem);
+  --size125rem: clamp(0.9rem, 2vw, 1.25rem);
+  --size11rem: clamp(0.8rem, 2vw, 1.1rem);
+  --size3rem: clamp(2rem, 2vw, 3rem);
+}
+
+
+
+/* ------------------------------------ páginas gerais ------------------------------------ */
+
+html, .meuApp {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body { /* configura o conteúdo como um todo */
+    background-color: var(--verdeHorta);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+        /* Navbar */
+.logo img { /* imagem do topo */
+    padding-top: 0.625rem;
+    width: 10%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+.navegacao { /* menu de navegação */
+    font-family: var(--fonteTitulo);
+    font-weight: bold;
+    background-color: var(--cinzaClaro03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem 1.88rem;
+    flex-wrap: wrap;
+}
+
+.navegacao h2 { /* menu sem formato de botão */
+    font-family: var(--fonteTitulo);
+    font-size: var(--size1rem);
+    font-weight: bold;
+    margin: auto;
+}
+
+.esquerda, .direita { /* menu - separação entre botões e menu */
+    display: flex;
+    flex-direction: row;
+    gap: 1.88rem;
+    color: var(--amareloLaranja);
+}
+
+.menu { /* menu em formato de botões */
+    border-radius: 2.5rem;
+    padding: 0.625rem 1.25rem;
+    background-color: var(--verdeVibrante04);
+    border: none;
+    font-family: var(--fonteTitulo);
+    font-weight: bold;
+    font-size: var(--size1rem);
+}
+
+.menu:hover { /* menu em formato de botões - ao passar o mouse */
+    background-color: var(--verdeVibrante);
+    color: white;
+}
+
+.esquerda h2:hover { /* menu sem formato de botão - ao passar o mouse */
+    text-decoration: underline;
+    color: var(--laranjaVibrante);
+}
+
+a, a:visited, a:hover, a:active { /* para evitar decoração de link */
+    text-decoration: none;
+    color: inherit;
+}
+
+        /* Conteúdo */
+.conteudoApp { /* área entre menu e rodapé */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+        /* Footer */
+.footerApp {
+    position: relative;
+    margin-bottom: 0;
+}
+
+footer { /* rodapé */
+    padding: 0.625rem 0;
+    font-family: var(--fonteTitulo);
+    background-color: var(--cinzaClaro03);
+    text-align: center;
+    gap: 1rem;
+    
+}
+
+footer p { /* rodapé */
+    font-size: var(--size07rem);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.iconRodape { /* rodapé */
+    font-size: var(--size1rem);
+    margin: 0 0.5rem;
+}
+
+        /* Introdução da página */
+.containerTitle {
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.titlePage{ /* titulo com duas cores */
+    width: 30%;
+    font-weight: bold;
+    justify-content: center;
+    font-size: var(--size18rem);
+    border-right: 0.3rem solid var(--verdeEscuro018);
+    text-align: start;
+    padding: 1rem 0 1rem 2rem;
+}
+
+.titleGreen { /* titulo com duas cores - cor um */
+    color: var(--verdeVibrante);
+}
+
+.titleOrange { /* titulo com duas cores - cor dois */
+    color: var(--laranjaVibrante);
+}
+
+.titleDetail { /* texto de introdução da página - vem junto do text-duo-color */
+    width: 70%;
+    font-size: var(--size1rem);
+    padding: 1rem 2rem;
+    justify-content: center;
+}
+
+        /* Botão */
+.btnForms { /* botão submit */
+    margin-top: 1.25rem;
+    border-radius: 2.5rem;
+    padding: 0.625rem 1.25rem;
+    background-color: var(--verdeVibrante04);
+    border: none;
+    font-family: var(--fonteTitulo);
+    font-weight: bold;
+    font-size: var(--size1rem);
+}
+
+.btnForms:hover { /* botão submit - ao passar o mouse */
+    background-color: var(--verdeVibrante);
+    color: white;
+}
+
+
+
+/* ------------------------------------ página INDEX ------------------------------------ */
+#carrosselHorta {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    padding: 0 4rem;
+    box-sizing: border-box;
+}
+
+.caixa { /* caixas de fundo */
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+    padding: 1.25rem;
+    border-radius: 3.25em;
+    background-color: var(--cinzaClaro04);
+    min-height: 35rem;
+    max-height: 35rem;
+    width: 90%;
+    gap: 10%
+}
+
+.texto { /* textos da página */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    margin: auto;
+    width: 50%;
+    padding-left: 1rem;
+}
+
+.texto h3 { /* título das caixas */
+    font-size: var(--size18rem);
+    text-align: center;
+    margin-bottom: 1.88rem;
+    font-weight: bold;
+    font-family: var(--fonteTitulo);
+}
+
+.texto p { /* parágrafos */
+    text-align: justify;
+    font-size: var(--size1rem);
+}
+
+.imgdireita { /*ajuste de imagem */
+    width: 45%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0 3.25em 3.25em 0;
+}
+
+.video-container {
+    display: flex;
+    width: 45%;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 24.625rem;
+    border-radius: 0 3.25em 3.25em 0;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(40%) sepia(22%) saturate(2281%) hue-rotate(74deg) brightness(92%) contrast(92%);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 3rem; /* Define largura fixa para o botão */
+    opacity: 0.8;
+}
+
+.carousel-control-prev {
+    left: 1rem; /* Posiciona no canto esquerdo interno da área do padding */
+}
+
+.carousel-control-next {
+    right: 1rem; /* Posiciona no canto direito interno da área do padding */
+}
+
+.btnForms.espaco {
+    margin-left: 1rem;
+}
+
+@media (max-width: 1000px) { /* tablet */
+    .caixa {
+        min-height: 110vh;
+        max-height: 110vh;
+        flex-direction: column;
+    }
+
+    .texto, .video-container, .imgdireita {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .video-container iframe, .imgdireita {
+        margin-top: 1rem;
+        border-radius: 0 0 3.25em 3.25em;
+    }
+}
+
+@media (max-width: 480px) { /* celular */
+    .caixa {
+        width: 100%;
+        min-height: 120vh;
+        max-height: 120vh;
+    }
+}
+
+/* ------------------------------------ página FALE CONOSCO ------------------------------------ */
+
+.contCaracteres {
+    font-size: var(--size07rem);
+    text-align: end;
+}
+
+.formsFale {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    margin: 0  auto 2rem;
+}
+
+.caixaContato { /* caixas de redes sociais e outros contatos */
+    background-color: var(--cinzaClaro04);
+    flex: 1;
+    padding: 1.25rem;
+    display: block;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+}
+
+.faleAtendenteIcon {
+    margin-right: 2rem;
+}
+
+.faleAtendenteText {
+    font-family: var(--fonteTitulo);
+    font-size: var(--size11rem);
+    font-weight: 500;
+}
+
+.redesFale {
+    font-family: var(--fonteTitulo);
+    font-size: var(--size3rem);
+    font-weight: 500;
+    margin: 0 1rem;
+}
+
+.redesFale:hover, .faleAtendenteText:hover {
+    color: var(--laranjaVibrante);
+}
+
+
+
+/* ------------------------------------ página LOGIN ------------------------------------ */
+.containerSenha {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex: 1;
+}
+
+.fraseImpacto { /* elementos centrais da página - frase que chama atenção */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+
+.campoLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 5rem 0;
+    border-left: 0.31rem solid var(--verdeVibrante);
+}
+
+.lineLogin {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.fraseImpacto h1 { /* frase de impacto */
+    font-family: var(--fonteTitulo);
+    font-weight: bold;
+    font-size: var(--size3rem);
+    margin-bottom: 3.125rem;
+}
+
+.senha { /* campo senha */
+    margin-top: 0.625rem;
+}
+
+@media (max-width: 768px) { /* tablet */
+    .fraseImpacto, .campoLogin {
+        width: 80%;
+    }
+
+    .campoLogin {
+        margin-top: 3rem;
+        border-top: 0.31rem solid var(--verdeVibrante);
+        border-left: 0;
+    }
+
+    .containerSenha {
+        flex-direction: column;
+    }
+}
+
+
+
+/* ------------------------------------ página DASHBOARD ------------------------------------ */
+
+.conteudo-dash { /* container total da página */
+    margin: 3.125rem 0.625rem 1.88rem 0.625rem;
+}
+
+.conteudo-dash .row { /* cada linha do dashboard: colunas com mesma altura */
+    align-items: stretch;
+}
+
+.line-dash { /* cada linha de conteúdo do dash */
+    margin-bottom: 1.25rem;
+}
+
+.caixa-dash { /* cada caixa ocupa 100% da altura da coluna */
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.title-box-dash { /* título de cada caixa */
+    font-weight: bold;
+    font-family: "Quicksand", sans-serif;
+    color: #236622;
+    padding-bottom: 0.625rem;
+    font-size: clamp(0.7rem, 2vw, 1.56rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text-atencao { /* texto informando atenção */
+    color: #d2691e;
+    font-weight: bold;
+}
+
+.atividades-recentes td { /* tabela de atividades recentes - coluna */
+    vertical-align: middle;
+    padding: 0.625rem 0.31rem;
+}
+
+.atividades-recentes .icone { /* tabela de atividades recentes - ícones */
+    width: 2.5rem;
+    text-align: center;
+    font-size: clamp(0.7rem, 2vw, 1.375rem);
+    color: #236622;
+}
+
+.atividades-recentes small { /* tabela de atividades recentes - textos pequenos */
+    color: rgb(85, 85, 85);
+}
+
+.tabela-estoque-box { /* Caixa da tabela */
+    background-color: #dce8c7; /* verde claro da referência */
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+}
+
+.icon-info, .icon-large, .emoji-table { /* ícones e emojis */
+    color: #236622;
+    margin-right: 1.25rem;
+    vertical-align: middle;
+}
+
+.icon-info, .emoji-info, .emoji-table { /* ícones pequenos e emojis - tamanho */
+    font-size: 1.25rem;
+}
+
+@media (max-width: 1300px) {
+    .icon-info, .emoji-info, .emoji-table {
+        display: none;
+    }
+}
+
+.icon-large { /* ícones grandes - tamanho */
+    font-size: clamp(0.7rem, 2vw, 3.125rem);
+}
+
+.emoji-info { /* emoji - margem */
+    margin-right: 0.81rem;
+}
+
+.emoji-table { /* emoji - margem */
+    margin: 0 1.25rem 0 1.88rem;
+}
+
+.bi-exclamation-triangle-fill { /* Ícone do estoque alerta */
+    margin-right: 1.25rem;
+}
+
+.btn-edit-box { /* botão de edição - lápis */
+    background: transparent;
+    border: none;
+    color: #236622;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-edit-box i { /* botão de edição - lápis */
+    font-size: clamp(0.7rem, 2vw, 1.125rem);
+}
+
+.btn-edit-box:hover i { /* botão de edição - lápis - ao passar o mouse */
+    color: #a96238;
+}
+
+.alerta-estoque { /* alerta de estoque baixo */
+    background-color: #dce8c7;
+    padding: 0.75rem 1.125rem;
+    border-radius: 0.625rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-ver-todos { /* link para ver mais detalhes */
+    color: #236622;
+    font-weight: bold;
+    text-align: end;
+}
+
+.text-ver-todos:hover { /* link para ver mais detalhes */
+    color: #a96238;
+}
+
+.tabela-estoque { /* Tabela sem bordas Bootstrap */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.625rem;
+}
+
+.tabela-estoque thead th { /* Tabela sem bordas Bootstrap - cabeçalho */
+    color: black;
+    font-weight: bold;
+    padding: 0.5rem 0;
+    border-bottom: 0.125rem solid #b7c7a3;
+    text-align: center;
+    background-color: #29461343;
+}
+
+.tabela-estoque td { /* Tabela sem bordas Bootstrap - linhas */
+    padding: 0.625rem 0;
+    border-bottom: 0.06rem solid #c7d6b4;
+    line-height: 0.31rem;
+}
+
+.col-curta { /* para colocar a tabela com tamanho de colunas mais equilibrado*/
+    white-space: nowrap;
+    width: auto;
+}
+
+.text-center { /* para alinhar o texto na tabela */ 
+    text-align: center;
+}
+
+.status { /* Status - tabela estoque */
+    font-weight: bold;
+    padding: 0 0.625rem;
+    border-radius: 0.625rem;
+}
+
+@media (max-width: 1296px) { /* tablet */
+    .status {
+        font-size: 0.75rem; 
+        padding-bottom: 0.25rem;
+        white-space: normal;
+    }
+}
+
+.status-disponivel { /* Status - itens disponíveis */
+    color: #236622;
+    background-color: #29461343;
+}
+
+.status-baixo { /* Status - itens em baixa */
+    color: #a96238;
+    background-color: #a9613841;
+}
+
+.resumo-estoque { /* Texto abaixo da tabela */
+    margin-top: 0.75rem;
+    margin-bottom: 0.31rem;
+}
+
+.barra-acoes { /* Busca - Caixa verde clara */
+    background-color: #dce8c7; /* mesmo tom da referência */
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-busca { /* Campo de busca */
+    width: 23.125rem;
+    padding: 0.625rem 1rem;
+    border-radius: 0.5rem;
+    border: 0.06rem solid #b7c7a3;
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    outline: none;
+    margin: none;
+}
+
+.input-busca::placeholder { /* Campo de busca */
+    color: #6b6b6b;
+}
+
+.btn-adicionar { /* Botão verde escuro - adicionar produtos */
+    background-color: #236622;
+    color: white;
+    border: none;
+    padding: 0.625rem 1.125rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    margin: none;
+}
+
+.btn-adicionar:hover { /* Botão verde escuro - adicionar produtos - passar o mouse */
+    background-color: #a96138;
+}
+
+.line-table-atividades { /* texto das últimas atividades notificadas */
+    border-right: 0.125rem solid #2946132c;
+}
+
+td .icon-large { /* texto das últimas atividades notificadas - icones */
+    padding: 0.625rem;
+}
+
+.voluntarios-box { /* Caixa específica dos voluntários */
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+}
+
+.linha-voluntario { /* Linha com número grande + texto pequeno */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* espaço entre ícone e texto */
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;;
+}
+
+.line-voluntarios-ativos { /* Linha com número grande + texto pequeno */
+    border-bottom: 0.125rem solid #2946132c;
+}
+
+.vol-info { /* Linha com número grande + texto pequeno */
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.numero { /* Linha com número grande + texto pequeno */
+    font-size: clamp(0.7rem, 2vw,  1.75rem);
+    font-weight: bold;
+    color: #236622;
+}
+
+.vol-info .descricao { /* Linha com número grande + texto pequeno */
+    font-size: 0.875rem;
+    margin-top: -0.125rem;
+}
+
+.linha-info { /* Linhas com ícones */
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-bottom: 0.625rem;
+}
+
+
+        /* Pop-up */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: --preto50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.conteudoModal {
+    width: 60%;
+    height: auto;
+    background-color: var(--verdeHorta);
+    padding: 3rem 5rem;
+    border-radius: 5rem;
+}
+
+.titleModal1, .titleModal2 {
+    font-family: var(--fonteTitulo);
+    font-weight: bold;
+    margin: auto;
+    font-size: var(--size18rem);
+}
+
+.titleModal1 {
+    color: var(--verdeVibrante);
+}
+
+.titleModal2 {
+    color: var(--laranjaVibrante);
+}
+
+.botoesPopup {
+    gap: 2rem;
+}
+
+.btnSalvar, .btnCancelar {
+    color: white;
+    border: none;
+    padding: 0.625rem 1.125rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 2rem;
+}
+
+.btnSalvar {
+    background-color: var(--verdeVibrante);
+}
+
+.btnSalvar:hover { 
+    background-color: var(--laranjaVibrante);
+}
+
+.btnCancelar {
+    background-color: var(--vermelhoFechado);
+    margin-left: 2rem;
+}
+
+.labelPopup {
+    font-size: var(--size1rem);
+    display: block;
+    margin-bottom: 1rem;
+    width: auto;
+}
+
+.inputPopup {
+    font-size: var(--size1rem);
+    width: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.25rem 1rem;
+    color: var(--cinza);
+}
+
+
+/* ------------------------------------ página CADASTRO ------------------------------------ */
+
+        /* Ilustração */
+.ilustracaoHorta {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+}
+
+        /* Botões de tipo de cadastro */
+.tipoCadastro { /* div onde está os botões de tipo de cadastro */
+    margin: 1.25rem 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 0.625rem 0 0 3rem;
+    flex-wrap: wrap;
+}
+
+.cadastroButton { /* botão de tipo de cadastro */
+    border-radius: 2.5rem;
+    padding: 0.625rem 1.25rem;
+    background-color:var(--cinzaClaro04);
+    border: none;
+    font-family: var(--fonteTitulo);
+    font-weight: bold;
+    color: var(--verdeVibrante);
+    text-align: center;
+    font-size: var(--size1rem);
+}
+
+.cadastroButton:hover { /* botão de tipo de cadastro - quando passa o mouse */
+    background-color: var(--verdeVibrante);
+    color: white;
+}
+
+.cadastroButton.active { /* botão de tipo de cadastro - quando está ativo */
+    background-color: var(--verdeVibrante04);
+    color: black;
+}
+
+        /* Cadastro */
+.formsCadastro {
+    margin: 1rem 3rem;
+}
+
+.secaoCadastro { /* container do cadastro */
+    margin-top: 1.25rem;
+}
+
+.secaoCadastro.borderTop { /* container do cadastro */
+    border-top: 0.125rem dashed var(--verdeVibrante03);
+    padding-top: 1rem;
+}
+
+.identificacaoSecao { /* titulo da seção */
+    font-family: var(--fonteTitulo);
+    font-size: var(--size07rem);
+    font-weight: 500;
+}
+
+.formularioSection {
+    padding: 0 2rem;
+}
+
+.campoForms {
+    width: 32%;
+}
+
+.campo100 {
+    width: 100%;
+}
+
+.campo50 {
+    width: 50%;
+}
+
+.campo22 {
+    width: 22%;
+}
+
+.campo20 {
+    width: 20%;
+}
+
+.campo17 {
+    width: 17%;
+}
+
+.campo11 {
+    width: 11%;
+}
+
+.tituloForms {
+    font-family: var(--fonteTitulo);
+    font-size: var(--size1rem);
+    font-weight: bold;
+}
+
+.form-control.campoControle, .form-check-label.campoControle {
+    font-family: var(--fonteTitulo);
+    font-size: var(--size1rem);
+    font-weight: 600;
+}
+
+.lineForms {
+    display: flex;
+    gap: 2%;
+    margin-bottom: 1rem;
+}
+
+.gridProdutos {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha quando os itens atingem a largura */
+    gap: 1rem 2%; /* Espaçamento: [vertical] [horizontal] */ 
+}
+
+.produtoItem {
+    display: flex;
+    align-items: center;   
+    gap: 0.5rem;
+    flex: 0 0 calc(24% - 1rem); /* Define o número de colunas por linha (Exemplo: 3 colunas) */
+    box-sizing: border-box;
+}
+
+.produtoItem .form-control {
+    width: 40%; 
+    margin-left: auto; 
+}
+
+.produtoOutro .nome-outro {
+    width: 15% !important;
+    margin-left: 3rem;
+}
+
+.produtoOutro {
+    display: flex;
+    align-items: center;   
+    gap: 0.5rem;
+    flex: 0 0 calc(100% - 1rem); /* Define o número de colunas por linha (Exemplo: 3 colunas) */
+    box-sizing: border-box;
+    margin-top: 1rem;
+}
+
+.produtoForms {
+    font-family: var(--fonteTitulo);
+    font-size: var(--size1rem);
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+.containerBtn {
+    margin-left: 2rem;
+}
+
+.paginaCadastro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1100px) { /* tablet */
+    .lineForms {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .campoForms, .campo50, .campo22, .campo20, .campo17, .campo11 {
+        width: 100%;  
+    }
+}
+
+
+
+/* ------------------------------------ página RESERVA ------------------------------------ */
+
+
+.lineReserva {
+    display: flex;
+    gap: 2%;
+    margin: 1rem;
+}
+
+.containerMapa, .containerBusca, .containerTable {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--cinzaClaro04);
+}
+
+.containerMapa h3 {
+    font-family: var(--fonteTitulo);
+    font-size: var(--size11rem);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.containerMapa {
+    width: 69%;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerBusca {
+    width: 29%;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+}
+
+.containerTable {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.tableReserva {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.iconReserva {
+    margin-right: 1.25rem;
+    vertical-align: middle;
+    font-size: var(--size125rem);
+}
+
+.tableReserva thead th { /* Tabela sem bordas Bootstrap - cabeçalho */
+    color: black;
+    padding: 0.625rem 0;
+    font-weight: bold;
+    border-bottom: 0.125rem solid var(--verdeVibrante04);
+    text-align: center;
+    background-color: #29461343;
+    line-height: 1.3;
+    font-size: var(--size1rem);
+}
+
+.tableReserva td { 
+    padding: 0.25rem 0;
+    border-bottom: 0.1rem solid #c7d6b4;
+    line-height: 0.31rem;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.3;
+    font-size: var(--size1rem);
+}
+
+.btnReserva {
+    margin: 0.25rem auto;
+    border-radius: 2.5rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--verdeVibrante04);
+    border: none;
+    font-family: var(--fonteTitulo);
+    font-weight: bold;
+    font-size: var(--size1rem);
+}
+
+.imgReserva {
+    width: 95%;
+    height: auto;
+    margin: auto;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.cardHortas {
+    border-radius: 0.5rem;
+    border: 1px solid var(--verdeVibrante);
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cardHortas h6 {
+    font-size: var(--size1rem);
+    font-weight: 500;
+}
+
+.cardHortas p {
+    font-size: var(--size07rem);
+}
+
+.cardHortas:hover {
+    background-color: var(--verdeVibrante03);
+}
+
+.inputBusca {
+    width: 100%;
+    padding: 0.25rem 1rem;
+    border: 1px solid var(--verdeVibrante);
+    border-radius: 0.5rem;
+    font-size: var(--size07rem);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.inputBusca:hover {
+    background-color: var(--verdeVibrante03);
+}
+
+.inputBusca:focus {
+    background-color: var(--verdeVibrante03);
+    color: var(--verdeVibrante);
+    font-weight: 600;
+}
+
+    /* Reserva */
+/* Overlay de fundo */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Card do Modal */
+.conteudoModalReserva {
+    background-color: var(--verdeHorta);
+    padding: 2rem 3rem;
+    border-radius: 1.5rem;
+    width: 70%;
+    max-width: 90%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    font-family: var(--fonteTitulo);
+    color: black;
+    text-align: center;
+}
+
+.tituloModalReserva {
+    font-size: var(--size18rem);
+    font-family: var(--fonteTitulo);
+    font-weight: bold;
+    color: var(--verdeVibrante);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.nomeDestaque {
+    color: var(--laranjaVibrante);
+}
+
+.itemModal {
+    margin-bottom: 1rem;
+    font-size: var(--size1rem);
+}
+
+/* Campo de input */
+.campoQuantidade {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;    
+}
+
+.inputQuantidade {
+    width: 4rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid var(--verdeVibrante);
+    border-radius: 0.5rem;
+    outline: none;
+    text-align: center;
+}
+
+.unidadeTexto {
+    font-weight: 500;
+}
+
+/* Caixa de aviso de tempo */
+.avisoReserva {
+    margin: 1rem 0;
+}
+
+.tempoAviso {
+    margin: 0;
+    font-size: var(--size1rem);
+    text-align: center;
+}
+
+.tempoDestaque {
+    color: var(--vermelhoFechado);
+    font-weight: bold;
+}
+
+.subAviso {
+    margin: 1rem 0 0 0;
+    font-size: 0.85rem;
+    color: #333333;
+}
+
+/* Botões */
+.botoesPopup {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btnConfirmarReserva, .btnCancelarReserva {
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: var(--size1rem);
+}
+
+.btnConfirmarReserva {
+    background-color: var(--verdeVibrante);
+}
+
+.btnCancelarReserva {
+    background-color: var(--vermelhoFechado);
+}
+
+.btnConfirmarReserva:hover {
+    background-color: var(--verdeEscuro);
+}
+
+.btnCancelarReserva:hover {
+    background-color: red;
+}
+
+.iconeRelogio {
+    margin-right: 1rem;
+}
+
+/* Banner de Mensagem de Sucesso */
+.alertaSucesso {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #2e7d32; /* Verde escuro */
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 2000;
+    font-weight: 500;
+    font-size: 0.95rem;
+    animation: fadeInSlide 0.3s ease-out;
+}
+
+.btnFecharAlerta {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0 4px;
+    opacity: 0.8;
+}
+
+.btnFecharAlerta:hover {
+    opacity: 1;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../css/css.css';
+import '../css/style.css';
 
 export default function EditorHorta({ dados, onSalvar, onCancelar }) {
 
@@ -19,71 +19,71 @@ export default function EditorHorta({ dados, onSalvar, onCancelar }) {
         <div className="modal">
             <div className="conteudoModal">
                 <h2 className="mb-4"><span className="titleModal1">Editar </span><span className="titleModal2">Dados da Horta</span></h2>
-                <label className="label-popup">
+                <label className="labelPopup">
                     Nome:
-                    <input className="input-popup"
+                    <input className="inputPopup"
                         name="nome"
                         value={form.nome}
                         onChange={handleChange}
                     />
                 </label>
 
-                <label className="label-popup">
+                <label className="labelPopup">
                     Localização:
-                    <input className="input-popup"
+                    <input className="inputPopup"
                         name="localizacao"
                         value={form.localizacao}
                         onChange={handleChange}
                     />
                 </label>
 
-                <label className="label-popup">
+                <label className="labelPopup">
                     Responsável:
-                    <input className="input-popup"
+                    <input className="inputPopup"
                         name="responsavel"
                         value={form.responsavel}
                         onChange={handleChange}
                     />
                 </label>
 
-                <label className="label-popup">
+                <label className="labelPopup">
                     Canteiros Ativos:
-                    <input className="input-popup"
+                    <input className="inputPopup"
                         name="canteirosAtivos"
                         value={form.canteirosAtivos}
                         onChange={handleChange}
                     />
                 </label>
 
-                <label className="label-popup">
+                <label className="labelPopup">
                     Área Cultivada:
-                    <input className="input-popup"
+                    <input className="inputPopup"
                         name="areaCultivada"
                         value={form.areaCultivada}
                         onChange={handleChange}
                     />
                 </label>
 
-                <label className="label-popup">
+                <label className="labelPopup">
                     Última Manutenção:
-                    <input className="input-popup"
+                    <input className="inputPopup"
                         name="ultimaManutencao"
                         value={form.ultimaManutencao}
                         onChange={handleChange}
                     />
                 </label>
 
-                <label className="label-popup">
+                <label className="labelPopup">
                     Status Atual:
-                    <input className="input-popup"
+                    <input className="inputPopup"
                         name="statusAtual"
                         value={form.statusAtual}
                         onChange={handleChange}
                     />
                 </label>
-                <div className="botoes-popup">
-                    <button className="btn-salvar" onClick={() => onSalvar(form)}>Salvar</button>
-                    <button className="btn-cancelar" onClick={onCancelar}>Cancelar</button>
+                <div className="botoesPopup">
+                    <button className="btnSalvar" onClick={() => onSalvar(form)}>Salvar</button>
+                    <button className="btnCancelar" onClick={onCancelar}>Cancelar</button>
                 </div>
             </div>
         </div>
