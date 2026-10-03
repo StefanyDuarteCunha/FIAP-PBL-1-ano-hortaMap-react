@@ -1,7 +1,8 @@
 import '../css/style.css';
 import { useState } from 'react';
 import React from "react";
-import ModalReserva from '../components/reserva-popup.jsx'
+import ModalReserva from '../components/reserva-popup.jsx';
+import mapa from '../img/mapa_reserva.png';
 
 export default function Reserva() {
     const [busca, setBusca] = useState("");
@@ -153,7 +154,7 @@ export default function Reserva() {
                 <div className="lineReserva">
                     <div className="containerMapa">
                         <h3>Hortas Próximas (Raio: 5km)</h3>
-                        <img src="../src/img/mapa_reserva.png" alt="Ilustração horta" className="imgReserva"/>
+                        <img src={mapa} alt="Ilustração horta" className="imgReserva"/>
                     </div>
                     <div className="containerBusca">
                         {/* Campo de Busca */}
