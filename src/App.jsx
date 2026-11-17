@@ -11,6 +11,7 @@ import BotaoCadastro from './components/botao-cadastro.jsx'
 import FaleConosco from './components/fale-conosco.jsx'
 import Dashboard from './components/dashboard.jsx'
 import Reserva from './components/reserva.jsx'
+import Chat from './components/chat.jsx'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Carrossel />} />
           <Route path="/conheca" element={<Carrossel />} />
           <Route path="/fale-conosco" element={<FaleConosco />} />
+          <Route path="/my-chat" element={<Chat />} />
           <Route path="/login" element={<Login />} />
           <Route path="/experimente" element={<BotaoCadastro />} />
           <Route path="/minhaarea" element={<Dashboard />} />

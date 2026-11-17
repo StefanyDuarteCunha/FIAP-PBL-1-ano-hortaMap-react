@@ -12,6 +12,7 @@ export default function Navbar() {
                 <div className="esquerda">
                     <h2><Link to="/conheca">Conheça a solução</Link></h2>
                     <h2><Link to="/fale-conosco">Fale conosco</Link></h2>
+                    <h2><Link to="/my-chat">MyChat</Link></h2>
                 </div>
                 <div className="direita">
                     <button type="button" className="menu"><Link to="/reserva">Reservas</Link></button>
