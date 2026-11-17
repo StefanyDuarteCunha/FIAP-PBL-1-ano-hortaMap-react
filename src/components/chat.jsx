@@ -1,13 +1,6 @@
 import { useState } from 'react';
-import { GoogleGenAI } from '@google/genai';
 import Markdown from 'react-markdown';
 import '../css/style.css';
-
-// Inicializa o SDK oficial do Google
-const ai = new GoogleGenAI({
-    apiKey: import.meta.env.VITE_MINHA_CHAVE_API,
-    httpOptions: { apiVersion: 'v1beta' },
-});
 
 function Chat() {
     const [listaMensagens, setListaMensagens] = useState([]);
@@ -26,23 +19,30 @@ function Chat() {
         setCarregando(true);
 
         try {
-            // Converte o histórico para o formato nativo do Gemini ('user' e 'model')
+            // Converte o histórico para o formato nativo do Gemini
             const contents = historicoAtualizado.map((msg) => ({
                 role: msg.role === 'assistant' ? 'model' : 'user',
                 parts: [{ text: msg.content }],
             }));
 
-            const response = await ai.models.generateContent({
-                model: 'gemini-2.5-flash',
-                contents: contents,
-                config: {
-                    systemInstruction: 'Seja direto, objetivo e conciso. Responda em no máximo 3 parágrafos curtos ou tópicos rápidos.',
+            // Chama a sua própria rota segura na Vercel
+            const respostaHttp = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
+                body: JSON.stringify({ contents }),
             });
+
+            const dados = await respostaHttp.json();
+
+            if (!respostaHttp.ok) {
+                throw new Error(dados.error || 'Erro na requisição');
+            }
 
             setListaMensagens((prev) => [
                 ...prev,
-                { role: 'assistant', content: response.text },
+                { role: 'assistant', content: dados.text },
             ]);
         } catch (erro) {
             console.error('Erro ao comunicar com a API:', erro);
