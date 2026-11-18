@@ -1,57 +1,56 @@
 import { useState } from 'react';
-import Markdown from 'react-markdown';
+import Markdown from 'react-markdown';  // biblioteca utilizada para que o sistema receba a mensagem do Gemini e identifique os Markdowns, e consiga tratá-los antes da visualiação do usuário.
 import '../css/style.css';
 
 function Chat() {
-    const [listaMensagens, setListaMensagens] = useState([]);
-    const [mensagemUsuario, setMensagemUsuario] = useState('');
-    const [carregando, setCarregando] = useState(false);
+    const [listaMensagens, setListaMensagens] = useState([]);  // variáveis que receberão a lista de mensagens, e suas inclusões. Inicialmente, ela começa em branco.
+    const [mensagemUsuario, setMensagemUsuario] = useState('');  // variáveis do campo de input do usuário
+    const [carregando, setCarregando] = useState(false);  // variáveis para repassar um feedback ao usuário enquanto o modelo de LLM carrega sua mensagem. Inicialmente, é false, pois não há nada carregando.
 
-    const enviarMensagem = async (e) => {
-        e.preventDefault();
-        if (!mensagemUsuario.trim() || carregando) return;
+    const enviarMensagem = async (e) => {  // o async é utilizado para algo que demora, sem travar o navegador.
+        e.preventDefault();  // impede que a página inteira recarregue.
+        if (!mensagemUsuario.trim() || carregando) return;  // impede o envio de mensagens em branco ou apenas com espaços.
 
-        const novaPergunta = { role: 'user', content: mensagemUsuario };
-        const historicoAtualizado = [...listaMensagens, novaPergunta];
+        const novaPergunta = { role: 'user', content: mensagemUsuario };  // a mensagem do usuário é atribuída a skill 'user'.
+        const historicoAtualizado = [...listaMensagens, novaPergunta];  // atualiza o histórico com a nova pergunta em uma copia da lista de mensagens.
 
-        setListaMensagens(historicoAtualizado);
-        setMensagemUsuario('');
-        setCarregando(true);
+        setListaMensagens(historicoAtualizado);  // salva a nova copia na lista de mensagens.
+        setMensagemUsuario('');  // limpa a caixa de mensagens do usuário.
+        setCarregando(true);  // inicia a mensagem de carregamento enquanto o LLM trabalha.
 
         try {
             // Converte o histórico para o formato nativo do Gemini
-            const contents = historicoAtualizado.map((msg) => ({
+            const contents = historicoAtualizado.map((msg) => ({  // traduz o histórico de mensagens naquele formato que o LLM interpreta.
                 role: msg.role === 'assistant' ? 'model' : 'user',
                 parts: [{ text: msg.content }],
             }));
 
-            // Chama a sua própria rota segura na Vercel
-            const respostaHttp = await fetch('/api/chat', {
-                method: 'POST',
+            const respostaHttp = await fetch('/api/chat', { // chama a sua própria rota segura na Vercel. Este formato foi adotado, para impedir o vazamento da chave de api utilizada.
+                method: 'POST',  // realiza envio de dados.
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',  // pacote chega em formato json.
                 },
-                body: JSON.stringify({ contents }),
+                body: JSON.stringify({ contents }),  // leva apenas o conteúdo de texto.
             });
 
-            const dados = await respostaHttp.json();
+            const dados = await respostaHttp.json();  // recebe a resposta do servidor e traduz para o js.
 
             if (!respostaHttp.ok) {
-                throw new Error(dados.error || 'Erro na requisição');
+                throw new Error(dados.error || 'Erro na requisição');  // em caso de erro, o sistema leva para o bloco 'catch'
             }
 
-            setListaMensagens((prev) => [
+            setListaMensagens((prev) => [  // inclui a resposta da IA no histórico, caso tudo corra corretamente.
                 ...prev,
                 { role: 'assistant', content: dados.text },
             ]);
-        } catch (erro) {
-            console.error('Erro ao comunicar com a API:', erro);
+        } catch (erro) {  // fluxo que o código entra caso o retorno do LLM não seja adequado.
+            // console.error('Erro ao comunicar com a API:', erro);  // utilizado para validar o fluxo de construção do código.
             setListaMensagens((prev) => [
                 ...prev,
-                { role: 'assistant', content: 'Desculpe, ocorreu um erro ao gerar a resposta.' },
+                { role: 'assistant', content: 'Desculpe, ocorreu um erro ao gerar a resposta.' },   // mensagem que o usuário recebe.
             ]);
         } finally {
-            setCarregando(false);
+            setCarregando(false);  // independente do fluxo que o código seguir - try ou catch - o encerramento da função passa por este bloco, removendo a mensagem de carregamento do LLM.
         }
     };
 
