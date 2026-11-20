@@ -256,6 +256,7 @@ html {
 .texto p { /* parágrafos */
     text-align: justify;
     font-size: var(--size1rem);
+    width: 100%;
 }
 
 .imgdireita { /*ajuste de imagem */
@@ -322,6 +323,10 @@ html {
         margin-top: 1rem;
         border-radius: 0 0 3.25em 3.25em;
     }
+
+    .texto p { /* parágrafos */
+        text-align: justify;
+    }
 }
 
 @media (max-width: 480px) { /* celular */
@@ -329,6 +334,10 @@ html {
         width: 100%;
         min-height: 120vh;
         max-height: 120vh;
+    }
+
+    .texto p { /* parágrafos */
+        text-align: justify;
     }
 }
 
