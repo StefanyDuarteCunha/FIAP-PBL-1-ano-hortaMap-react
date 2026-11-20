@@ -41,10 +41,9 @@ export default function Carrossel() {
                                     <button type="button" className="btnForms"><a href="https://www.youtube.com/embed/8Pci9h2cy9U?si=DaQ1uK3vf-MT6VDR" target="_blank">Veja mais detalhes - Solução completa</a></button>
                                 </div>
                             </div>
-                            {/* <div className="video-container">
-                                <iframe className="imgdireita" width="100%" height="350" src="https://www.youtube.com/embed/8Pci9h2cy9U?si=DaQ1uK3vf-MT6VDR" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                            </div> */}
-                            <img className="imgdireita" src={icon} alt="Fale Conosco"/>
+                            <div className="video-container">
+                                <iframe className="imgdireita" width="100%" height="350" src="https://youtu.be/OIoYSmJWP4w" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                            </div>
                         </div>
                     </div>
                     <div className="carousel-item">
