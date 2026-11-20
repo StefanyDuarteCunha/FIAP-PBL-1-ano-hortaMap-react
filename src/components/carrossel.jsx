@@ -38,11 +38,11 @@ export default function Carrossel() {
                                 <p className="m-0">- Formulário para cadastro de novos usuários, com conteúdo específico para Gestores de horta, voluntários e comunidade.</p>
                                 <p className="m-0">- MyChat - recurso que integra inteligência artificial para tirar dúvidas sobre os alimentos.</p>
                                 <div>
-                                    <button type="button" className="btnForms"><a href="https://www.youtube.com/embed/8Pci9h2cy9U?si=DaQ1uK3vf-MT6VDR" target="_blank">Veja mais detalhes - Solução completa</a></button>
+                                    <button type="button" className="btnForms"><a href="https://www.youtube.com/embed/OIoYSmJWP4w?si=1HhjzP5OH04Q0mXd" target="_blank">Veja mais detalhes - Solução completa</a></button>
                                 </div>
                             </div>
                             <div className="video-container">
-                                <iframe className="imgdireita" width="100%" height="350" src="https://youtu.be/OIoYSmJWP4w" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                                <iframe className="imgdireita" width="100%" height="350" src="https://www.youtube.com/embed/OIoYSmJWP4w?si=1HhjzP5OH04Q0mXd" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                             </div>
                         </div>
                     </div>
